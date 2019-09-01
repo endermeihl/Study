@@ -3,6 +3,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
+    static boolean flag = true;
 
     public static void main(String args[]) throws IOException {
         //为了简单起见，所有的异常信息都往外抛
@@ -11,7 +12,7 @@ public class Server {
             ServerSocket serverSocket = new ServerSocket(3333);
             //创建一个客户端对象，这里的作用是用作多线程，必经服务器服务的不是一个客户端
             Socket client = null;
-            boolean flag = true;
+
 
             while (flag) {
                 System.out.println("服务器已启动，等待客户端请求。。。。");
@@ -19,7 +20,9 @@ public class Server {
                 client = serverSocket.accept();
                 //创建一个线程，每个客户端对应一个线程
                 new Thread(new EchoThread(client)).start();
+                if(!flag) break;
             }
+            assert client != null;
             client.close();
             serverSocket.close();
             System.out.println("服务器已关闭。");
@@ -27,6 +30,9 @@ public class Server {
             e.printStackTrace();
         }
 
+    }
+    public static void setFlag(boolean flagt){
+        flag=flagt;
     }
 }
 
@@ -47,23 +53,31 @@ class EchoThread implements Runnable {
             BufferedReader bf = new BufferedReader(new InputStreamReader(client.getInputStream()));
             httpRequest = bf.readLine();
             System.out.println(httpRequest);
-            //获取到url地址,请求头中是/index.html ，因此需要将/去掉
-            urlRequest = httpRequest.split(" ")[1].substring(1);
-            System.out.println(urlRequest);
-            //检查是否有该文件，有则返回，无则报错404
-            PrintWriter out = new PrintWriter(client.getOutputStream());
-            //返回一个状态行
-            out.println("HTTP/1.0 200 OK");
-            //返回一个首部
-            out.println("Content-Type:text/html;charset=utf-8");
-            // 根据 HTTP 协议, 空行将结束头信息
-            out.println();
+            String[] type=httpRequest.split("\\?");
+            System.out.println(type[1]);
+            System.out.println("false HTTP/1.1".equals(type[1]));
+            if(type.length>1&&"false HTTP/1.1".equals(type[1])){
+                Server.setFlag(false);
+            }else{
+                //获取到url地址,请求头中是/index.html ，因此需要将/去掉
+                urlRequest = httpRequest.split(" ")[1].substring(1);
+                System.out.println(urlRequest);
+                //检查是否有该文件，有则返回，无则报错404
+                PrintWriter out = new PrintWriter(client.getOutputStream());
+                //返回一个状态行
+                out.println("HTTP/1.0 200 OK");
+                //返回一个首部
+                out.println("Content-Type:text/html;charset=utf-8");
+                // 根据 HTTP 协议, 空行将结束头信息
+                out.println();
 
-            // 输出请求资源
-            out.println("<h1 style='color: green'> Hello Http Server</h1>");
-            out.println("你好, 这是一个 Java HTTP 服务器 demo 应用.<br>");
-            out.println("您请求的路径是: " + urlRequest + "<br>");
-            out.close();
+                // 输出请求资源
+                out.println("<h1 style='color: green'> Hello Http Server</h1>");
+                out.println("你好, 这是一个 Java HTTP 服务器 demo 应用.<br>");
+                out.println("您请求的路径是: " + urlRequest + "<br>");
+                out.close();
+            }
+
 
         } catch (IOException e1) {
             // TODO 自动生成的 catch 块

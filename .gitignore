@@ -1,0 +1,11 @@
+
+.idea/.gitignore
+.idea/compiler.xml
+.idea/description.html
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+Study.iml
+out/
+test.data

@@ -54,8 +54,8 @@ class EchoThread implements Runnable {
             httpRequest = bf.readLine();
             System.out.println(httpRequest);
             String[] type=httpRequest.split("\\?");
-            System.out.println(type[1]);
-            System.out.println("false HTTP/1.1".equals(type[1]));
+            //System.out.println(type[1]);
+            //System.out.println("false HTTP/1.1".equals(type[1]));
             if(type.length>1&&"false HTTP/1.1".equals(type[1])){
                 Server.setFlag(false);
             }else{

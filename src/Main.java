@@ -1,6 +1,9 @@
+import webserver.HtmlServer;
+import webserver.HttpServer;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        HtmlServer.startServer(7080);
     }
 }

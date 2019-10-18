@@ -41,8 +41,8 @@ public class HttpServer {
         while (true) {
             try {
                 if (selector.select() > 0) {
-                System.out.println("当前连接数:" + selector.keys().size());
-                System.out.println("检测到活跃的连接数:" + selector.selectedKeys().size());
+                    System.out.println("当前连接数:" + selector.keys().size());
+                    System.out.println("检测到活跃的连接数:" + selector.selectedKeys().size());
                     Set<SelectionKey> keys = selector.selectedKeys();
                     Iterator<SelectionKey> it = keys.iterator();
                     while (it.hasNext()) {

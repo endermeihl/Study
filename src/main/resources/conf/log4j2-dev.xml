@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="error">
+    <properties>
+        <Property name="PID">????</Property>
+        <Property name="LOG_EXCEPTION_CONVERSION_WORD">%xwEx</Property>
+        <Property name="LOG_LEVEL_PATTERN">%5p</Property>
+        <Property name="LOG_DATEFORMAT_PATTERN">HH:mm:ss.SSS</Property>
+        <Property name="CONSOLE_LOG_PATTERN">%clr{%d{${LOG_DATEFORMAT_PATTERN}}}{faint} %clr{${LOG_LEVEL_PATTERN}} %clr{---}{faint} %clr{%-60.60c}{cyan} %clr{:}{faint} %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}</Property>
+    </properties>
+    <CustomLevels>
+        <CustomLevel name="SERVICE" intLevel="350" />
+    </CustomLevels>
+    <!--     先定义所有的appender -->
+    <appenders>
+        <!--         这个输出控制台的配置 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--             控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch） -->
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!--             这个都知道是输出日志的格式 -->
+            <PatternLayout pattern="${sys:CONSOLE_LOG_PATTERN}"/>
+        </Console>
+    </appenders>
+
+    <!--     然后定义logger，只有定义了logger并引入的appender，appender才会生效 -->
+    <loggers>
+        <LOGGER name="org.springframework.boot.autoconfigure" level="ERROR"/>
+        <LOGGER name="org.springframework.beans.factory.support" level="ERROR"/>
+        <LOGGER name="io.swagger.models" level="ERROR"/>
+        <!--         建立一个默认的root的logger -->
+        <root level="DEBUG">
+            <appender-ref ref="Console"/>
+        </root>
+
+    </loggers>
+</configuration>

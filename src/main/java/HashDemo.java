@@ -1,4 +1,4 @@
-package hash;
+package main;
 
 public class HashDemo {
     //加法hash

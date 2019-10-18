@@ -6,8 +6,7 @@ import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
-import java.util.Map;
- 
+
 public class Java8Tester {
    public static void main(String args[]){
       System.out.println("使用 Java 7: ");

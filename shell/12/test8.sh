@@ -1,6 +1,6 @@
 #!/bin/bash
 testuser=baduser
-if [ $USER != $testuser ]
+if [[ ${USER} != ${testuser} ]]
 then
 	echo "This is not $testuser"
 else

@@ -2,18 +2,13 @@ package IO;
 
 import base.BaseDemo;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
-import java.text.MessageFormat;
 
 public class FileChannelDemo extends BaseDemo {
     public void test(String file) throws IOException {
-
-
         FileInputStream fin = new FileInputStream(file);
         // 获取通道
         FileChannel fc = fin.getChannel();

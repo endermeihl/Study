@@ -1,5 +1,9 @@
 package sort;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.PriorityQueue;
+
 public class SelctionSort {
     public void selctionSort(int[] ins){
         for(int i=0;i<ins.length-1;i++){
@@ -19,6 +23,8 @@ public class SelctionSort {
     public static void main(String[] args){
         SelctionSort selctionSort=new SelctionSort();
         int[] ints=new int[]{4,3,2,1};
+        HashMap m=new HashMap<>();
+        PriorityQueue<Integer> pro=new PriorityQueue<>();
         selctionSort.selctionSort(ints);
     }
 }

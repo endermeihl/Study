@@ -9,6 +9,6 @@ public class MergeSort {
     }
     public void merge(int[] ins,int left,int middle,int right){
         int[] tmpArray=new int[ins.length];
-
+        //mergeSort(ins,0,);
     }
 }

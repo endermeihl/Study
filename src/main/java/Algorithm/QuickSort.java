@@ -70,7 +70,7 @@ public class QuickSort {
         int[] b = {3, 6, 1, 2, 4, 5, 7, 9, 8, 0};
         quickSort.quickSort(b, 0, b.length - 1);
         System.out.println(Arrays.toString(b));
-        List<Integer> list = Arrays.asList(a);
-        System.out.println(Arrays.toString(quickSort.quickSort(list).toArray()));
+        //List<Integer> list = Arrays.asList(a);
+        //System.out.println(Arrays.toString(quickSort.quickSort(list).toArray()));
     }
 }

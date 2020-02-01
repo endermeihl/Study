@@ -51,7 +51,6 @@ class MinStack {
 
     public static void main(String[] args){
         String s="";
-        s.toCharArray();
         System.out.println(0b100+1);
 
     }

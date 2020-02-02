@@ -3,10 +3,9 @@ package exam;
 import java.util.Arrays;
 
 public class MergeSort {
-
     public void sort(int[] nums) {
-        int len = nums.length;
-        mergeSort(nums, 0, len - 1);
+        mergeSort(nums, 0, nums.length - 1);
+
     }
 
     private void mergeSort(int[] nums, int left, int right) {
@@ -18,13 +17,12 @@ public class MergeSort {
     }
 
     private void merge(int[] nums, int left, int right, int mid) {
-        if (left >= right) return;
         int[] temp = new int[right - left + 1];
         int i = 0;
         int l = left;
         int r = mid + 1;
         while (l <= mid && r <= right) {
-            temp[i++] = nums[l] <= nums[r] ? nums[l++] : nums[r++];
+            temp[i++] = nums[l] < nums[r] ? nums[l++] : nums[r++];
         }
         while (l <= mid) {
             temp[i++] = nums[l++];
@@ -34,6 +32,7 @@ public class MergeSort {
         }
         System.arraycopy(temp, 0, nums, left, right - left + 1);
     }
+
 
     public static void main(String[] args) {
         MergeSort mergeSort = new MergeSort();

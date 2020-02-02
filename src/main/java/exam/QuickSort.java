@@ -1,41 +1,43 @@
 package exam;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class QuickSort {
 
-    public void sort(int[] nums){
-        quickSort(nums,0,nums.length-1);
+    public void sort(int[] nums) {
+        quickSort(nums, 0, nums.length - 1);
     }
 
-    private void quickSort(int[] nums,int l,int r){
-        if(l>r) return;
-        int base=nums[l];
-        int i=l;
-        int j=r;
-        while (i!=j){
-            while (nums[j]>=base && j>i){
+    private void quickSort(int[] nums, int left, int right) {
+        if (left > right) return;
+        int base = nums[left];
+        int i = left;
+        int j = right;
+        while (i < j) {
+            while (i < j && nums[j] >= base) {
                 j--;
             }
-            while (nums[i]<=base && j>i){
+            while (i < j && nums[i] <= base) {
                 i++;
             }
-            if(i<j){
-                int temp=nums[i];
-                nums[i]=nums[j];
-                nums[j]=temp;
+            if (i < j) {
+                int temp = nums[j];
+                nums[j] = nums[i];
+                nums[i] = temp;
             }
         }
-        nums[l]=nums[i];
-        nums[i]=base;
-        quickSort(nums,l,i-1);
-        quickSort(nums,i+1,r);
+        nums[left] = nums[i];
+        nums[i] = base;
+        quickSort(nums, left, i - 1);
+        quickSort(nums, i + 1, right);
     }
 
     public static void main(String[] args){
         QuickSort quickSort=new QuickSort();
-        int[] nums=new int[]{3,4,2,1,5,6,8,9,7};
+        int[] nums=new int[]{3,2,1,4,9,8,6,5,7};
         quickSort.sort(nums);
         System.out.println(Arrays.toString(nums));
     }
+
 }

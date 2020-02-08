@@ -27,28 +27,29 @@ if [[ ! -f ${project}/logs/error.fifo ]];then
 else
     log "输入通道已经存在"
 fi
-cat $project/logs/info.fifo | tee -a $info &
-cat $project/logs/error.fifo | tee -a $error &
+cat "$project"/logs/info.fifo | tee -a "$info" &
+cat "$project"/logs/error.fifo | tee -a "$error" &
 echo "开始更新版本操作"
-exec 1>> $project/logs/info.fifo
-exec 2>> $project/logs/error.fifo
+exec 1>> "$project"/logs/info.fifo
+exec 2>> "$project"/logs/error.fifo
 log "开始处理更新"
 log "开始处理打包"
 #从版本库拉取内容开始
 log "拉取版本内容"
 git clone -b feature-resetExamError ssh://$gitulr
-cd $gitdir
+cd "$gitdir" || exit
 log "编译并打包"
 mvn package -Pproduct
-cd docker
-cp $appname.war $project
-cd $project
+cd docker || exit
+cp "$appname".war "$project"
+cd "$project" || exit
 #处理之前的版本内容开始
 log "处理之前版本内容"
+# shellcheck disable=SC2207
 IFS=\| previous=($(sed -n '4p' version.conf)) #获取前一个版本所有信息
-log "前一个版本所有信息"`declare -p previous|awk '{match($0,/\([^()]*\)/);print substr($0,RSTART+1,RLENGTH-2)}'`
+log "前一个版本所有信息"$(declare -p previous|awk '{match($0,/\([^()]*\)/);print substr($0,RSTART+1,RLENGTH-2)}')
 previous_version=${previous[0]} # 读取前一个版本号
-log "前一个版本号:"$previous_version
+log "前一个版本号:""$previous_version"
 IFS=, previson_machineids=(${previous[1]}) # 读取前一个容器编号
 log "前一个版本容器编号"`declare -p previson_machineids|awk '{match($0,/\([^()]*\)/);print substr($0,RSTART+1,RLENGTH-2)}'`
 previous_image_name=${previous[2]} # 读取前一个版本所用镜像名称

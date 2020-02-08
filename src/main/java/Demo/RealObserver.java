@@ -1,5 +1,6 @@
 package Demo;
 
+
 public class RealObserver implements Observer {
 
     @Override

@@ -1,5 +1,7 @@
 package base;
 
+import java.util.Arrays;
+
 public class StringToInt {
     public int stringToInt(String s){
         char[] nums=s.toCharArray();
@@ -11,6 +13,7 @@ public class StringToInt {
     }
     public static void main(String[] args){
         StringToInt stringToInt=new StringToInt();
+        Arrays.asList(Integer.class,1);
         System.out.println(stringToInt.stringToInt("123"));
     }
 }

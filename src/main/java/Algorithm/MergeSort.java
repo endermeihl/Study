@@ -22,13 +22,13 @@ public class MergeSort {
         int i = 0;
         int p1 = L;
         int p2 = mid + 1;
-        while (p1 <= mid && p2 <= R) {
+        while (p1 <= mid && p2 < R) {
             temp[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
         }
         while (p1 <= mid) {
             temp[i++] = arr[p1++];
         }
-        while (p2 <= R) {
+        while (p2 < R) {
             temp[i++] = arr[p2++];
         }
         System.arraycopy(temp, 0, arr, L, R - L + 1);

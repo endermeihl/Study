@@ -2,8 +2,9 @@ package Algorithm.study.first;
 
 import java.util.Iterator;
 
-public class StackDemo<Item> implements Iterable<Item> {
+public class QueueDemo<Item> implements Iterable<Item> {
     private Node first;
+    private Node last;
     private int N;
 
     @Override
@@ -41,23 +42,20 @@ public class StackDemo<Item> implements Iterable<Item> {
         return N;
     }
 
-    public void push(Item item) {
-        Node oldFirst = first;
-        first = new Node();
-        first.item = item;
+    public void enqueue(Item item) {
+        Node oldLast = last;
+        last = new Node();
+        last.item = item;
+        last.next = null;
+        if (isEmpty()) first = last;
+        else oldLast.next = last;
         N++;
     }
 
-    public Item peek() {
-        if (!isEmpty()) {
-            return first.item;
-        }
-        return null;
-    }
-
-    public Item pop() {
+    public Item dequeue() {
         Item item = first.item;
         first = first.next;
+        if (isEmpty()) last = null;
         N--;
         return item;
     }

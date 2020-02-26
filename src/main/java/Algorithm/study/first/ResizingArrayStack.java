@@ -2,14 +2,16 @@ package Algorithm.study.first;
 
 import java.util.Iterator;
 
-public class ResizeingArrayStack<Item> implements Iterable<Item> {
+public class ResizingArrayStack<Item> implements Iterable<Item>, StackInterface<Item> {
     private int N;
     private Item[] a = (Item[]) new Object[1];
 
+    @Override
     public boolean isEmpty() {
         return N == 0;
     }
 
+    @Override
     public int size() {
         return N;
     }
@@ -20,11 +22,13 @@ public class ResizeingArrayStack<Item> implements Iterable<Item> {
         a = temp;
     }
 
+    @Override
     public void push(Item item) {
         if (N == a.length) resize(2 * a.length);
         a[N++] = item;
     }
 
+    @Override
     public Item pop() {
         Item item = a[--N];
         a[N] = null;

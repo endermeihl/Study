@@ -3,6 +3,34 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>aliyun</id>
+            <name>Aliyun Repository</name>
+            <url>http://maven.junruizaixian.com:8081/nexus/content/repositories/aliyun/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>public</name>
+            <url>http://maven.junruizaixian.com:8081/nexus/content/groups/public/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -15,34 +43,6 @@
         <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
     </properties>
 
-<!--    <pluginRepositories>-->
-<!--        <pluginRepository>-->
-<!--            <id>aliyun</id>-->
-<!--            <name>Aliyun Repository</name>-->
-<!--            <url>http://192.168.0.120:8081/nexus/content/repositories/aliyun/</url>-->
-<!--            <layout>default</layout>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled>true</enabled>-->
-<!--            </snapshots>-->
-<!--        </pluginRepository>-->
-<!--    </pluginRepositories>-->
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>public</id>-->
-<!--            <name>public</name>-->
-<!--            <url>http://192.168.0.120:8081/nexus/content/groups/public/</url>-->
-<!--            <layout>default</layout>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled>true</enabled>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
-<!--    </repositories>-->
 
     <groupId>com.ender</groupId>
     <artifactId>ender</artifactId>
@@ -67,6 +67,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

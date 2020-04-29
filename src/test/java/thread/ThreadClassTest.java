@@ -1,6 +1,6 @@
 package thread;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ThreadClassTest {
 
@@ -32,7 +32,7 @@ public class ThreadClassTest {
         Thread thread4 = new GuessANumber(75);
 
         thread4.start();
-        System.out.println("main() is ending...");
+        System.out.println("kotlin.main() is ending...");
 
     }
 }

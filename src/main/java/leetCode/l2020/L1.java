@@ -1,6 +1,6 @@
 package leetCode.l2020;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -44,7 +44,7 @@ public class L1 {
      * 这个使用了一个map作为中间存储记录已经遍历过的值
      */
     public int[] twoSum_2(int[] nums, int target) {
-        Map<Integer, Integer> temp = new Hashtable<>();
+        Map<Integer, Integer> temp = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             if (temp.containsKey(target - nums[i])) {
                 return new int[]{i, temp.get(target - nums[i])};

@@ -1,5 +1,7 @@
 package leetCode.l2020;
 
+import leetCode.l2020.type.ArrayProblem;
+
 /**
  * @author ender
  * @version 4
@@ -17,7 +19,7 @@ package leetCode.l2020;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/median-of-two-sorted-arrays
  */
-public class L4 {
+public class L4 implements ArrayProblem {
     /**
      * @param nums1 第一个数组
      * @param nums2 第二个数组

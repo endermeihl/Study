@@ -1,5 +1,7 @@
 package leetCode.l2020;
 
+import leetCode.l2020.type.ArrayProblem;
+
 /**
  * @author ender
  * @version 11
@@ -12,7 +14,7 @@ package leetCode.l2020;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/container-with-most-water
  */
-public class L11 {
+public class L11 implements ArrayProblem {
     /**
      * @param height 高度数组
      * @return 返回最大储水量

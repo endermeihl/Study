@@ -1,5 +1,7 @@
 package leetCode.l2020;
 
+import leetCode.l2020.type.ArrayProblem;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,10 +17,9 @@ import java.util.Map;
  * 因为 nums[0] + nums[1] = 2 + 7 = 9
  * 所以返回 [0, 1]
  */
-public class L1 {
+public class L1 implements ArrayProblem {
     /**
-     *
-     * @param nums 数组
+     * @param nums   数组
      * @param target 目标和
      * @return 数组中和为目标和的索引对
      * 暴力解法，双层嵌套循环
@@ -37,8 +38,7 @@ public class L1 {
     }
 
     /**
-     *
-     * @param nums 数组
+     * @param nums   数组
      * @param target 目标和
      * @return 数组中和为目标和的索引对
      * 这个使用了一个map作为中间存储记录已经遍历过的值

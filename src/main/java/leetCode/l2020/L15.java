@@ -1,5 +1,7 @@
 package leetCode.l2020;
 
+import leetCode.l2020.type.ArrayProblem;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +20,7 @@ import java.util.List;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/3sum
  */
-public class L15 {
+public class L15 implements ArrayProblem {
     /**
      * @param nums 输入数组
      * @return 返回满足的结果集

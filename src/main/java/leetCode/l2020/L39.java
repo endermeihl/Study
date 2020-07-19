@@ -44,7 +44,7 @@ public class L39 implements ArrayProblem, Backtracking {
      * @param candidates 传入数组
      * @param target     目标和
      * @return 满足条件的结果集
-     * 使用回溯发标准模板处理 这里使用了栈
+     * 使用回溯法标准模板处理 这里使用了栈
      * 需要注意的是这里不允许重复
      */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {

@@ -1,7 +1,7 @@
 package leetCode.l2020;
 
 import base.TreeNode;
-import leetCode.l2020.type.TreeProblem;
+import leetCode.l2020.type.TreeNodeProblem;
 
 /**
  * @author ender
@@ -38,7 +38,7 @@ import leetCode.l2020.type.TreeProblem;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/subtree-of-another-tree
  */
-public class L572 implements TreeProblem {
+public class L572 implements TreeNodeProblem {
     /**
      * @param s 父树
      * @param t 子树

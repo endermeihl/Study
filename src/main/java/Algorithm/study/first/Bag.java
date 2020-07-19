@@ -1,6 +1,8 @@
 package Algorithm.study.first;
 
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Iterator;
 import java.util.ListIterator;
 
@@ -19,6 +21,7 @@ public class Bag<Item> implements Iterable<Item> {
         first.next = oldFirst;
     }
 
+    @NotNull
     @Override
     public Iterator<Item> iterator() {
         return new ListIterator();

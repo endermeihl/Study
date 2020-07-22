@@ -15,12 +15,7 @@ public class Demo {
         Demo demo = new Demo();
         demo.test();
         String[] ars = new String[]{"10", "0001", "111001", "1", "0"};
-        Arrays.sort(ars, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.length() - o2.length();
-            }
-        });
+        Arrays.sort(ars, Comparator.comparingInt(String::length));
         System.out.println(Arrays.toString(ars));
     }
 }

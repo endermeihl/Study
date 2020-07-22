@@ -60,6 +60,16 @@ public class BST<Key extends Comparable<Key>, Value> {
         else return min(x.left);
     }
 
+    public Key max() {
+        return max(root).key;
+    }
+
+    private Node max(Node x) {
+        if (x.right == null) return x;
+        else return max(x.right);
+    }
+
+
     public Key floor(Key key) {
         Node x = floor(root, key);
         if (x == null) return null;
@@ -72,6 +82,22 @@ public class BST<Key extends Comparable<Key>, Value> {
         if (cmp == 0) return x;
         if (cmp < 0) return floor(x.left, key);
         Node t = floor(x.right, key);
+        if (t != null) return t;
+        else return x;
+    }
+
+    public Key celling(Key key) {
+        Node x = celling(root, key);
+        if (x == null) return null;
+        else return x.key;
+    }
+
+    private Node celling(Node x, Key key) {
+        if (x == null) return null;
+        int cmp = key.compareTo(x.key);
+        if (cmp == 0) return x;
+        if (cmp > 0) return celling(x.right, key);
+        Node t = celling(x.left, key);
         if (t != null) return t;
         else return x;
     }
@@ -99,4 +125,49 @@ public class BST<Key extends Comparable<Key>, Value> {
         else if (cmp > 0) return 1 + size(x.left) + rank(key, x.right);
         else return size(x.left);
     }
+
+    public void deleteMin() {
+        root = deleteMin(root);
+    }
+
+    private Node deleteMin(Node x) {
+        if (x.left == null) return x.right;
+        x.left = deleteMin(x.left);
+        x.N = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+
+    public void deleteMax() {
+        root = deleteMax(root);
+    }
+
+    private Node deleteMax(Node x) {
+        if (x.right == null) return x.left;
+        x.right = deleteMax(x.right);
+        x.N = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+
+    public void delete(Key key) {
+        root = delete(root, key);
+    }
+
+    private Node delete(Node x, Key key) {
+        if (x == null) return null;
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) x.left = delete(x.left, key);
+        else if (cmp > 0) x.right = delete(x.right, key);
+        else {
+            if (x.right == null) return x.left;
+            if (x.left == null) return x.right;
+            Node t = x;
+            x = min(t.right);
+            x.right = deleteMin(t.right);
+            x.left = t.left;
+        }
+        x.N = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+
+
 }

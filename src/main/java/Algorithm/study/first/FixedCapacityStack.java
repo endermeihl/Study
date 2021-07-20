@@ -1,13 +1,14 @@
 package Algorithm.study.first;
 
 public class FixedCapacityStack<Item> implements StackInterface<Item> {
-    private Item[] a;
+    private final Item[] a;
     private int N;
 
     public FixedCapacityStack(int cap) {
         a = (Item[]) new Object[cap];
     }
 
+    @Override
     public boolean isEmpty() {
         return N == 0;
     }

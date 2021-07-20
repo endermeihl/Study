@@ -1,6 +1,5 @@
 package leetCode.l2020;
 
-import com.alibaba.druid.support.monitor.annotation.MTable;
 
 import java.util.HashSet;
 

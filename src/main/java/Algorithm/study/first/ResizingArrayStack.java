@@ -24,7 +24,9 @@ public class ResizingArrayStack<Item> implements Iterable<Item>, StackInterface<
 
     @Override
     public void push(Item item) {
-        if (N == a.length) resize(2 * a.length);
+        if (N == a.length) {
+            resize(2 * a.length);
+        }
         a[N++] = item;
     }
 
@@ -32,7 +34,9 @@ public class ResizingArrayStack<Item> implements Iterable<Item>, StackInterface<
     public Item pop() {
         Item item = a[--N];
         a[N] = null;
-        if (N > 0 && N == a.length / 4) resize(a.length / 2);
+        if (N > 0 && N == a.length / 4) {
+            resize(a.length / 2);
+        }
         return item;
     }
 

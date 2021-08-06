@@ -47,15 +47,20 @@ public class QueueDemo<Item> implements Iterable<Item> {
         last = new Node();
         last.item = item;
         last.next = null;
-        if (isEmpty()) first = last;
-        else oldLast.next = last;
+        if (isEmpty()) {
+            first = last;
+        } else {
+            oldLast.next = last;
+        }
         N++;
     }
 
     public Item dequeue() {
         Item item = first.item;
         first = first.next;
-        if (isEmpty()) last = null;
+        if (isEmpty()) {
+            last = null;
+        }
         N--;
         return item;
     }

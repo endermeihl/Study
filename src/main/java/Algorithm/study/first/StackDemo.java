@@ -45,6 +45,7 @@ public class StackDemo<Item> implements Iterable<Item> {
         Node oldFirst = first;
         first = new Node();
         first.item = item;
+        first.next = oldFirst;
         N++;
     }
 

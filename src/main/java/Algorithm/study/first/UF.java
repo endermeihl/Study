@@ -1,5 +1,6 @@
 package Algorithm.study.first;
 
+// union-find算法
 public class UF {
     private int[] id;
     private int[] sz;

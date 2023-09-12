@@ -31,6 +31,6 @@ public class BinarySearch {
     public static void main(String[] args) {
         int[] whitelist = new int[]{1, 3, 9, 10, 2, 3, 4, 9, 4, 5};
         Arrays.sort(whitelist);
-        StdOut.println(rank(11, whitelist));
+        StdOut.println(rank(5, whitelist));
     }
 }

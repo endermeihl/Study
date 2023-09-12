@@ -40,7 +40,9 @@ public class Bloomfilter {
             e.printStackTrace();
         } finally {
             try {
-                if (reader != null) reader.close();
+                if (reader != null) {
+                    reader.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

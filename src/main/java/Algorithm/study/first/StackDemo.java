@@ -1,11 +1,14 @@
 package Algorithm.study.first;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Iterator;
 
 public class StackDemo<Item> implements Iterable<Item> {
     private Node first;
     private int N;
 
+    @NotNull
     @Override
     public Iterator<Item> iterator() {
         return new ListIterator();

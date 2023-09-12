@@ -10,7 +10,9 @@ public class MergeSort {
     }
 
     public void mergeSort(int[] ins, int left, int right) {
-        if (left == right) return;
+        if (left == right) {
+            return;
+        }
         int middle = (left + right) / 2;
         mergeSort(ins, middle + 1, right);
         mergeSort(ins, left, middle);
@@ -18,7 +20,9 @@ public class MergeSort {
     }
 
     public void merge(int[] ins, int left, int middle, int right) {
-        if (left >= right) return;
+        if (left >= right) {
+            return;
+        }
         int[] tmpArray = new int[right - left + 1];
         int i = 0;
         int l = left;

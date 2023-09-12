@@ -3,7 +3,7 @@ package leetCode.bak;
 public class Multiply {
     public String multiply(String num1, String num2) {
         StringBuilder res=new StringBuilder();
-        if(num1.equals("0")||num2.equals("0")){
+        if("0".equals(num1)|| "0".equals(num2)){
             return "0";
         }
         int l1=num1.length();

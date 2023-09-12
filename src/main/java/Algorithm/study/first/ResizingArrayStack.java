@@ -1,5 +1,7 @@
 package Algorithm.study.first;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Iterator;
 
 public class ResizingArrayStack<Item> implements Iterable<Item>, StackInterface<Item> {
@@ -40,6 +42,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item>, StackInterface<
         return item;
     }
 
+    @NotNull
     @Override
     public Iterator<Item> iterator() {
         return new ReverseArrayIterator();

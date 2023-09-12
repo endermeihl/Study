@@ -11,6 +11,5 @@ public class AnyDoProxyTest {
         Anything ender = new ThingOne();
         Anything enderProxy = (Anything) new AnyDoProxy(ender).creatProxy();
         enderProxy.doSomething("Ender");
-
     }
 }

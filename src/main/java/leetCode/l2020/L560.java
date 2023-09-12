@@ -15,7 +15,7 @@ import java.util.HashMap;
  * 数组的长度为 [1, 20,000]。
  * 数组中元素的范围是 [-1000, 1000] ，且整数 k 的范围是 [-1e7, 1e7]。
  * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/subarray-sum-equals-k
+ * 链接：<a href="https://leetcode-cn.com/problems/subarray-sum-equals-k">...</a>
  */
 public class L560 implements ArrayProblem {
     /**

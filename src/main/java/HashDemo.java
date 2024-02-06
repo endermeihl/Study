@@ -1,5 +1,3 @@
-package main;
-
 public class HashDemo {
     //加法hash
     static int additiveHash(String key, int prime) {

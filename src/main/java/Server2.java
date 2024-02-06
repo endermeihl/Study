@@ -1,4 +1,6 @@
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -19,23 +21,29 @@ public class Server2 {
                 in.close();
                 System.out.println("request from client " + client.getInetAddress().getHostAddress());
                 System.out.println(new String(buf));
-                PrintWriter o = new PrintWriter(client.getOutputStream());
-                //返回一个状态行
-                o.println("HTTP/1.0 200 OK");
-                //返回一个首部
-                o.println("Content-Type:text/html;charset=utf-8");
-                // 根据 HTTP 协议, 空行将结束头信息
-                o.println();
-
-                // 输出请求资源
-                o.println("<h1 style='color: green'> Hello Http Server</h1>");
-                o.println("你好, 这是一个 Java HTTP 服务器 demo 应用.<br>");
-                o.println("您请求的路径是: "  + "<br>");
+                PrintWriter o = getPrintWriter(client);
                 o.close();
                 //client.close();
             }catch(Exception e){
                 e.printStackTrace();
             }
         }
+    }
+
+    @NotNull
+    private static PrintWriter getPrintWriter(Socket client) throws IOException {
+        PrintWriter o = new PrintWriter(client.getOutputStream());
+        //返回一个状态行
+        o.println("HTTP/1.0 200 OK");
+        //返回一个首部
+        o.println("Content-Type:text/html;charset=utf-8");
+        // 根据 HTTP 协议, 空行将结束头信息
+        o.println();
+
+        // 输出请求资源
+        o.println("<h1 style='color: green'> Hello Http Server</h1>");
+        o.println("你好, 这是一个 Java HTTP 服务器 demo 应用.<br>");
+        o.println("您请求的路径是: "  + "<br>");
+        return o;
     }
 }
